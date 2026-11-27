@@ -1,0 +1,71 @@
+{
+  "ok": true,
+  "headless": true,
+  "editorRevision": "8af3660bd0bb0ddefbe51a9694f4e843a7200f76",
+  "artifact": {
+    "filename": "extensions-4.0.sb3",
+    "bytes": 5256071,
+    "sha256": "700f97df1595c2ca8ae0ed6fd78ec35ff84a78eecb959fba0ae169769ff12986"
+  },
+  "checks": [
+    {
+      "unit": "first",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "contract",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "arguments",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "state",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "async",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    },
+    {
+      "unit": "share",
+      "guide": "click"
+    },
+    {
+      "unit": "share",
+      "paths": [
+        "selected",
+        "retry",
+        "correct",
+        "menu"
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プラとモコの機能拡張教室</title>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<main>
+<header>
+<p class="series">プラとモコのエディター教室</p>
+<h1>プラとモコの機能拡張教室</h1>
+<p>TurboWarp互換のJavaScript拡張で、新しいブロックの形、入力、処理の約束を学びます。</p>
+</header>
+<nav aria-label="単元の目次">
+<h2>6つの単元</h2>
+<ol><li><a href="#first">ブロックを増やす</a></li>
+<li><a href="#contract">見た目と処理</a></li>
+<li><a href="#arguments">入力と結果</a></li>
+<li><a href="#state">状態を持つなら</a></li>
+<li><a href="#async">待つ処理を作る</a></li>
+<li><a href="#share">試す・配る</a></li></ol>
+</nav>
+<section id="play">
+<h2>紙芝居で試す</h2>
+<p>約10〜12分。どの単元からでも始められます。解説、クイズ、答えの順に進みます。</p>
+<p><a class="download" href="work/extensions-4.0.sb3" download>紙芝居のSB3をダウンロード</a></p>
+<ol>
+<li><a href="https://kubohiroya.github.io/turbowarp-plus-editor/editor.html?lang=ja">Plus Editor</a>で「ファイル」→「SB3ファイルを開く…」を選びます。</li>
+<li>実行画面を引出しに表示して緑の旗を押し、単元を選びます。ステージにフォーカスがある間はSpaceで説明やGuideを先へ進められます。</li>
+</ol>
+<figure><img src="images/menu.png" alt="緑の旗を押すと表示される6単元の目次"><figcaption>プラとモコの紙芝居の目次。</figcaption></figure>
+<p>完成例は、名前に「さん」を付けるブロックと、最大2秒待って同じ結果を返すブロックです。試すときは別の練習用作品を開き、拡張機能ライブラリの「カスタム拡張機能」から、ダウンロードしたJSファイルをサンドボックス内で読み込みます。</p>
+<p><a href="examples/greeting-extension.js" download>あいさつ拡張の完成例をダウンロード</a></p>
+</section>
+<section class="unit" id="first">
+<h2>1. ブロックを増やす</h2>
+<p>Scratchの定義ブロックは作品の中の手順をまとめます。TurboWarp互換の拡張はJavaScriptから、カテゴリや新しいブロックをエディターへ登録できます。</p>
+<ul><li>定義ブロックと機能拡張は別の仕組み</li>
+<li>対応するエディタとAPIを確認する</li>
+<li>小さな一個から作り、動きを確かめる</li></ul>
+<p><strong>試すこと</strong>　「作品の中の手順に名前をつけたい」と「値を返す新しいブロックを追加したい」の二つで、使う仕組みを考えます。</p>
+</section>
+<section class="unit" id="contract">
+<h2>2. 見た目と処理</h2>
+<p>getInfo() に拡張の識別子とブロックの形を書きます。opcodeで指定した名前に対応するメソッドが実行時の処理を担当します。</p>
+<ul><li>getInfoはブロックの説明を返す</li>
+<li>opcodeと処理メソッドを対応させる</li>
+<li>表示文と内部の識別子を区別する</li></ul>
+<p><strong>試すこと</strong>　完成例の greet を探し、ブロックの表示名、opcode、実行するメソッドを指差します。</p>
+</section>
+<section class="unit" id="arguments">
+<h2>3. 入力と結果</h2>
+<p>ブロックの引数名は、表示文の [NAME]、定義と処理の args.NAME で対応させます。値を返すブロックでは return を使い、想定した型に変換します。</p>
+<ul><li>引数名を宣言・表示・実装で一致させる</li>
+<li>結果はreturnで呼ぶ側へ返す</li>
+<li>入力を必要な型へ変換して扱う</li></ul>
+<p><strong>試すこと</strong>　完成例で「モコ」、空欄、123を試します。結果が「モコさん」「さん」「123さん」になることを確認します。</p>
+</section>
+<section class="unit" id="state">
+<h2>4. 状態を持つなら</h2>
+<p>値をどこに持つかで、どの作品やスプライトが使えるかと、いつ消えるかが決まります。再読み込み後にも残すデータには保存方式が必要です。</p>
+<ul><li>状態の所有範囲を決める</li>
+<li>初期化とリセットの動作を設計する</li>
+<li>作品の保存とJSフィールドを混同しない</li></ul>
+<p><strong>試すこと</strong>　呼び出し回数を表示する機能を考え、全作品・編集中の作品・スプライトのどこで数えるかと、いつ0に戻すかを決めます。</p>
+</section>
+<section class="unit" id="async">
+<h2>5. 待つ処理を作る</h2>
+<p>Promiseを返すと非同期処理の完了を呼び出し元に知らせられます。待ち時間の範囲、失敗時の結果、中断方法を設計すると使い方が分かりやすくなります。</p>
+<ul><li>Promiseで非同期処理の完了を伝える</li>
+<li>失敗・入力範囲・時間の上限を考える</li>
+<li>中止と後始末を別に検討する</li></ul>
+<p><strong>試すこと</strong>　完成例に0秒と3秒を渡して試します。0秒はすぐ結果を返し、3秒を指定しても待ち時間は最大2秒です。</p>
+</section>
+<section class="unit" id="share">
+<h2>6. 試す・配る</h2>
+<p>拡張を共有するときは、使える環境、必要な権限、対応版、ライセンスを示します。動作と停止を別の作品で試し、エラー時の表示も確かめます。</p>
+<ul><li>必要な権限を理解して選ぶ</li>
+<li>入力と境界、対応環境をテストする</li>
+<li>互換性・版・使い方・ライセンスを伝える</li></ul>
+<p><strong>試すこと</strong>　完成例の戻り値を変数に入れて試します。対応環境と必要な権限を、他の人が再現できる一文にまとめます。</p>
+</section>
+<section id="references"><h2>参考資料</h2><ul><li><a href="https://docs.turbowarp.org/development/extensions/hello-world">TurboWarp公式の拡張機能入門</a></li>
+<li><a href="https://docs.turbowarp.org/development/extensions/inputs">TurboWarp公式の入力仕様</a></li>
+<li><a href="https://docs.turbowarp.org/development/extensions/async">TurboWarp公式の非同期処理</a></li>
+<li><a href="https://docs.turbowarp.org/development/extensions/sandbox">TurboWarp公式のサンドボックス解説</a></li></ul></section>
+<footer><p>Hiroya Kubo · Kamishibai App 4.0.21</p></footer>
+</main>
+</body>
+</html>

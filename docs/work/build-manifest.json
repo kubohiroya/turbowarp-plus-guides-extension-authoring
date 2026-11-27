@@ -1,0 +1,55 @@
+{
+  "formatVersion": 1,
+  "title": "プラとモコの機能拡張教室",
+  "issue": "kubohiroya/turbowarp-plus-editor#724",
+  "app": {
+    "formatVersion": 1,
+    "repository": "kubohiroya/turbowarp-kamishibai-app",
+    "version": "4.0.21",
+    "tag": "v4.0.21",
+    "commit": "714e7270fb29b2ba3800fca67be9e0507f23d10c",
+    "publishedAt": "2026-11-26T16:12:38Z",
+    "sourceIdentity": "sha256:b2871398e9c58a1bacc4022d42d8d208e1236b6a3dd5aacd2667e8932ac814e5",
+    "artifact": {
+      "filename": "kamishibai-4.0.21.sb3",
+      "sha256": "fad8fa5a01133b8d9461a79ff4f988927f73b8199e34ff3f5f187afb428e9bcb",
+      "size": 1593889,
+      "url": "https://github.com/kubohiroya/turbowarp-kamishibai-app/releases/download/v4.0.21/kamishibai-4.0.21.sb3"
+    }
+  },
+  "builder": {
+    "name": "@kubohiroya/turbowarp-kamishibai-app",
+    "version": "4.0.21"
+  },
+  "artifact": {
+    "filename": "extensions-4.0.sb3",
+    "bytes": 5256071,
+    "sha256": "700f97df1595c2ca8ae0ed6fd78ec35ff84a78eecb959fba0ae169769ff12986"
+  },
+  "units": [
+    {
+      "unit": "first",
+      "dialogueSeconds": 91
+    },
+    {
+      "unit": "contract",
+      "dialogueSeconds": 90
+    },
+    {
+      "unit": "arguments",
+      "dialogueSeconds": 90
+    },
+    {
+      "unit": "state",
+      "dialogueSeconds": 91
+    },
+    {
+      "unit": "async",
+      "dialogueSeconds": 89
+    },
+    {
+      "unit": "share",
+      "dialogueSeconds": 90
+    }
+  ]
+}

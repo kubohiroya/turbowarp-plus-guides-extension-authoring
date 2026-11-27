@@ -1,0 +1,1243 @@
+kamishibai: "4.0"
+controls:
+  keymaps:
+    production:
+      Space: navigation.nextAction
+bubbleStyles:
+  lesson:
+    maxWidth: 320
+    textLocale: ja
+    distance: 0
+    tailLength: 8
+assets:
+  PuraIdle:
+    kind: costume
+    target: Pura
+    file: assets/pura.png
+  MokoIdle:
+    kind: costume
+    target: Moko
+    file: assets/moko.png
+  Unit1:
+    kind: costume
+    file: assets/Unit1.svg
+    target: Unit1
+  Unit2:
+    kind: costume
+    file: assets/Unit2.svg
+    target: Unit2
+  Unit3:
+    kind: costume
+    file: assets/Unit3.svg
+    target: Unit3
+  Unit4:
+    kind: costume
+    file: assets/Unit4.svg
+    target: Unit4
+  Unit5:
+    kind: costume
+    file: assets/Unit5.svg
+    target: Unit5
+  Unit6:
+    kind: costume
+    file: assets/Unit6.svg
+    target: Unit6
+  AnswerA:
+    kind: costume
+    file: assets/AnswerA.svg
+    target: AnswerA
+  AnswerB:
+    kind: costume
+    file: assets/AnswerB.svg
+    target: AnswerB
+  NextUnit:
+    kind: costume
+    file: assets/NextUnit.svg
+    target: NextUnit
+  Menu:
+    kind: costume
+    file: assets/Menu.svg
+    target: Menu
+  extensionsMenu:
+    kind: backdrop
+    file: assets/extensionsMenu.svg
+  extensionsButton1:
+    kind: costume
+    file: assets/extensionsButton1.svg
+    target: Unit1
+  extensionsButton2:
+    kind: costume
+    file: assets/extensionsButton2.svg
+    target: Unit2
+  extensionsButton3:
+    kind: costume
+    file: assets/extensionsButton3.svg
+    target: Unit3
+  extensionsButton4:
+    kind: costume
+    file: assets/extensionsButton4.svg
+    target: Unit4
+  extensionsButton5:
+    kind: costume
+    file: assets/extensionsButton5.svg
+    target: Unit5
+  extensionsButton6:
+    kind: costume
+    file: assets/extensionsButton6.svg
+    target: Unit6
+  Board_extensions_first:
+    kind: backdrop
+    file: assets/Board_extensions_first.svg
+  Quiz_extensions_first:
+    kind: backdrop
+    file: assets/Quiz_extensions_first.svg
+  Recap_extensions_first:
+    kind: backdrop
+    file: assets/Recap_extensions_first.svg
+  Board_extensions_contract:
+    kind: backdrop
+    file: assets/Board_extensions_contract.svg
+  Quiz_extensions_contract:
+    kind: backdrop
+    file: assets/Quiz_extensions_contract.svg
+  Recap_extensions_contract:
+    kind: backdrop
+    file: assets/Recap_extensions_contract.svg
+  Board_extensions_arguments:
+    kind: backdrop
+    file: assets/Board_extensions_arguments.svg
+  Quiz_extensions_arguments:
+    kind: backdrop
+    file: assets/Quiz_extensions_arguments.svg
+  Recap_extensions_arguments:
+    kind: backdrop
+    file: assets/Recap_extensions_arguments.svg
+  Board_extensions_state:
+    kind: backdrop
+    file: assets/Board_extensions_state.svg
+  Quiz_extensions_state:
+    kind: backdrop
+    file: assets/Quiz_extensions_state.svg
+  Recap_extensions_state:
+    kind: backdrop
+    file: assets/Recap_extensions_state.svg
+  Board_extensions_async:
+    kind: backdrop
+    file: assets/Board_extensions_async.svg
+  Quiz_extensions_async:
+    kind: backdrop
+    file: assets/Quiz_extensions_async.svg
+  Recap_extensions_async:
+    kind: backdrop
+    file: assets/Recap_extensions_async.svg
+  Board_extensions_share:
+    kind: backdrop
+    file: assets/Board_extensions_share.svg
+  Quiz_extensions_share:
+    kind: backdrop
+    file: assets/Quiz_extensions_share.svg
+  Recap_extensions_share:
+    kind: backdrop
+    file: assets/Recap_extensions_share.svg
+actors:
+  Pura: PuraIdle
+  Moko: MokoIdle
+  Unit1: Unit1
+  Unit2: Unit2
+  Unit3: Unit3
+  Unit4: Unit4
+  Unit5: Unit5
+  Unit6: Unit6
+  AnswerA: AnswerA
+  AnswerB: AnswerB
+  NextUnit: NextUnit
+  Menu: Menu
+cover:
+  backdrop: extensionsMenu
+scenes:
+  menu:
+    - stage: extensionsMenu
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - Unit1.show:
+        skin: extensionsButton1
+        x: -112
+        y: 55
+        scale: 100
+    - Unit2.show:
+        skin: extensionsButton2
+        x: 112
+        y: 55
+        scale: 100
+    - Unit3.show:
+        skin: extensionsButton3
+        x: -112
+        y: -12
+        scale: 100
+    - Unit4.show:
+        skin: extensionsButton4
+        x: 112
+        y: -12
+        scale: 100
+    - Unit5.show:
+        skin: extensionsButton5
+        x: -112
+        y: -79
+        scale: 100
+    - Unit6.show:
+        skin: extensionsButton6
+        x: 112
+        y: -79
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_menu
+    - goto: menu
+  first_intro:
+    - stage: Board_extensions_first
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: 関数が分かったから、次はブロックを百個増やすぞ！
+        seconds: 5.3
+        styles:
+          - lesson
+    - Pura.say:
+        text: まず一個から。機能拡張は、エディタに新しいブロックとその処理を提供する仕組みだよ。
+        seconds: 8
+        styles:
+          - lesson
+    - Moko.say:
+        text: Scratchの「ブロック定義」を作るのと同じ？
+        seconds: 5.3
+        styles:
+          - lesson
+    - Pura.say:
+        text: 作品内の手順をまとめる定義ブロックとは違う。ここではTurboWarp互換のJavaScript拡張を作るんだ。
+        seconds: 10.4
+        styles:
+          - lesson
+    - Moko.say:
+        text: じゃあ標準Scratchのサイトにも、そのまま読み込める？
+        seconds: 6.1
+        styles:
+          - lesson
+    - Pura.say:
+        text: 任意のJavaScript拡張を標準Scratchサイトへ読み込めるわけではないよ。Plusや対応するTurboWarp環境を使おう。
+        seconds: 12.2
+        styles:
+          - lesson
+    - Moko.say:
+        text: 題材は「名前にさんをつける」丸いブロック。小さくて、結果が分かりやすいね。
+        seconds: 7.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: ブロックの情報をgetInfoで宣言し、処理のメソッドを書き、インスタンスを登録する。この三つが入口だ。
+        seconds: 9.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 完成例は教材のソースに入っているよ。紙芝居を動かすために、その例を読み込む必要はないんだ。
+        seconds: 8.7
+        styles:
+          - lesson
+    - Pura.say:
+        text: 教材と開発例を分けてあるから、説明を読んでから、自分の練習用プロジェクトで試せるよ。
+        seconds: 8.2
+        styles:
+          - lesson
+    - goto: first_quiz
+  first_quiz:
+    - stage: Quiz_extensions_first
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_first_quiz
+    - goto: first_quiz
+  first_retry:
+    - stage: Quiz_extensions_first
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 標準Scratchに任意のJavaScriptを読み込む講座ではないよ。どの実行環境のAPIを使うのか確認しよう。
+        seconds: 10.6
+        styles:
+          - lesson
+    - goto: first_quiz
+  first_yes:
+    - stage: Recap_extensions_first
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: TurboWarp互換のAPIを使った機能拡張だよ。標準Scratchサイトと、対応環境の違いを確認して使おう。
+        seconds: 10.4
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_first_yes
+    - goto: menu
+  contract_intro:
+    - stage: Board_extensions_contract
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: getInfoって「情報ください！」と大声で言う関数？
+        seconds: 5.8
+        styles:
+          - lesson
+    - Pura.say:
+        text: エディタへブロックの説明を渡すメソッドだよ。拡張のid、表示名、ブロック一覧などを返すんだ。
+        seconds: 8.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 表示名は変えられるけど、idは作品の識別に使うんだね。
+        seconds: 5.8
+        styles:
+          - lesson
+    - Pura.say:
+        text: そう。英数字の適切なidを選び、他の拡張と衝突させない。公開後に変えると既存作品との関係が変わり得るよ。
+        seconds: 9.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: opcodeがgreetなら、実装もgreet(args)。名前がつながっている！
+        seconds: 8
+        styles:
+          - lesson
+    - Pura.say:
+        text: 見た目のtextと、内部の識別子opcodeは別。翻訳で表示文を変えても、内部の約束は保つとよいね。
+        seconds: 9.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: ブロックの形は全部丸にする？
+        seconds: 4.5
+        styles:
+          - lesson
+    - Pura.say:
+        text: 値を返すreporter、真偽を返すboolean、動作するcommandなど、使う側が期待する役割に合わせよう。
+        seconds: 10.6
+        styles:
+          - lesson
+    - Moko.say:
+        text: 最後にScratch.extensions.registerで登録すると、エディタに見つけてもらえるんだ。
+        seconds: 9.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 宣言と実装が一致するか、登録が一回か、読み込みエラーがないかを、小さな状態で確認しよう。
+        seconds: 8.5
+        styles:
+          - lesson
+    - goto: contract_quiz
+  contract_quiz:
+    - stage: Quiz_extensions_contract
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_contract_quiz
+    - goto: contract_quiz
+  contract_retry:
+    - stage: Quiz_extensions_contract
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 表示名だけでは、どの処理を呼ぶか決まらないよ。内部のopcodeとメソッドの対応を見よう。
+        seconds: 8.7
+        styles:
+          - lesson
+    - goto: contract_quiz
+  contract_yes:
+    - stage: Recap_extensions_contract
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: opcodeと処理メソッドを対応させるんだ。表示する文と内部の識別子は、役割を分けて考えよう。
+        seconds: 9
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_contract_yes
+    - goto: menu
+  arguments_intro:
+    - stage: Board_extensions_arguments
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: "[NAME]って書けば、ぼくの名前を自動で知ってくれる？"
+        seconds: 5.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: そこは入力の置き場所。argumentsにNAMEの型や初期値を宣言し、実行時はargs.NAMEで受け取るよ。
+        seconds: 10.4
+        styles:
+          - lesson
+    - Moko.say:
+        text: 初期値は「モコ」。そこへ「プラ」を入れれば「プラさん」が返るね。
+        seconds: 6.6
+        styles:
+          - lesson
+    - Pura.say:
+        text: reporterの結果はreturnで返す。consoleへのログや、画面へセリフを出すこととは違う働きだよ。
+        seconds: 10.3
+        styles:
+          - lesson
+    - Moko.say:
+        text: 入力型を文字列に指定したから、絶対に文字しか来ないよね？
+        seconds: 5.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 型の指定は入力欄の形などの目安で、実行時の値を保証しない。必要な型へ変換して扱おう。
+        seconds: 8.2
+        styles:
+          - lesson
+    - Moko.say:
+        text: 今回はScratch.Cast.toStringを使う。数値が入っても、文字としてつなげられるね。
+        seconds: 9.3
+        styles:
+          - lesson
+    - Pura.say:
+        text: 数値ならtoNumberなど、意図に合った変換を選ぼう。空欄や想定外の入力をどう扱うかも仕様にするんだ。
+        seconds: 9.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 「モコ」、空文字、123。別々の入力で、期待した結果と比べてみよう。
+        seconds: 6.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 一般の関数講座で扱った入力・結果・契約が、拡張ブロックの設計にもつながるね。
+        seconds: 7.5
+        styles:
+          - lesson
+    - goto: arguments_quiz
+  arguments_quiz:
+    - stage: Quiz_extensions_arguments
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_arguments_quiz
+    - goto: arguments_quiz
+  arguments_retry:
+    - stage: Quiz_extensions_arguments
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 入力欄の型指定だけでは、実行時に受け取る値の型を保証しないよ。明示的な変換を考えよう。
+        seconds: 8.3
+        styles:
+          - lesson
+    - goto: arguments_quiz
+  arguments_yes:
+    - stage: Recap_extensions_arguments
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 別の形の値が届くことも考え、処理に必要な型へ変換しよう。初期値と実際の入力も区別してね。
+        seconds: 8.5
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_arguments_yes
+    - goto: menu
+  state_intro:
+    - stage: Board_extensions_state
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: 呼ぶたびに回数が増えるブロックを作ったよ。誰の回数かは、ひみつ！
+        seconds: 6.6
+        styles:
+          - lesson
+    - Pura.say:
+        text: そこを決めよう。拡張インスタンスのフィールドは、同じ拡張を呼ぶ複数のスクリプトで共有され得るよ。
+        seconds: 9.1
+        styles:
+          - lesson
+    - Moko.say:
+        text: スプライトごとの点数のつもりでthis.countを使うと、混ざってしまうかも。
+        seconds: 7.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: そう。作品全体、スプライト、呼び出し一回。誰に属するデータかを先に決めよう。
+        seconds: 7.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: 緑の旗を押せば、JavaScriptのフィールドも必ずゼロに戻る？
+        seconds: 6.7
+        styles:
+          - lesson
+    - Pura.say:
+        text: 自動でそうなると決めつけない。初期化やリセットの動作を設計し、対応する環境で確かめる必要があるよ。
+        seconds: 9.3
+        styles:
+          - lesson
+    - Moko.say:
+        text: 保存して開き直したら、フィールドの値も全部残る？
+        seconds: 5.3
+        styles:
+          - lesson
+    - Pura.say:
+        text: ただのJavaScriptフィールドを、作品データの保存と同じだと思わないでね。永続化は別の約束になる。
+        seconds: 9.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 今回のあいさつブロックは、入力から結果を作るだけ。共有状態を持たなくて済むね。
+        seconds: 7.7
+        styles:
+          - lesson
+    - Pura.say:
+        text: 必要になるまで増やさないのも設計だよ。状態を持つなら、所有者・初期値・寿命・保存を説明できるようにしよう。
+        seconds: 9.9
+        styles:
+          - lesson
+    - goto: state_quiz
+  state_quiz:
+    - stage: Quiz_extensions_state
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_state_quiz
+    - goto: state_quiz
+  state_retry:
+    - stage: Quiz_extensions_state
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: JavaScriptのフィールドと、スプライトごとの保存される変数は同じではないよ。所有範囲と寿命を確認しよう。
+        seconds: 10.4
+        styles:
+          - lesson
+    - goto: state_quiz
+  state_yes:
+    - stage: Recap_extensions_state
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: そのフィールドが誰の状態なのか、いつ初期化され、何が保存されるかを明示しよう。自動で作品変数になるわけではないよ。
+        seconds: 10.6
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_state_yes
+    - goto: menu
+  async_intro:
+    - stage: Board_extensions_async
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: 時間のかかる処理？ 完了するまで、whileでずっと待てばいい！
+        seconds: 6.6
+        styles:
+          - lesson
+    - Pura.say:
+        text: 忙しく回り続ける待ち方は、処理を占有してしまう。非同期の処理は、Promiseで完了や結果を知らせよう。
+        seconds: 9.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: Promiseを返すと、そのブロックを呼んだスクリプトが結果を待てるんだね。
+        seconds: 7.5
+        styles:
+          - lesson
+    - Pura.say:
+        text: そう。他のスクリプトまで全部止める待ち方とは違う。サンプルには、少し待ってあいさつを返すブロックもあるよ。
+        seconds: 9.9
+        styles:
+          - lesson
+    - Moko.say:
+        text: 待ち時間の入力を、とんでもなく大きくしたら？
+        seconds: 4.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 扱う範囲を決めよう。今回の例は0〜2秒に収める。実際のアプリなら、要求や外部処理の性質に合わせて考える。
+        seconds: 9.8
+        styles:
+          - lesson
+    - Moko.say:
+        text: 通信に失敗したら、ずっと黙って待たせるのは困るね。
+        seconds: 5.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: 失敗時に返す値や通知、タイムアウトなどを設計する。成功したふりをしないことが大切だよ。
+        seconds: 8.3
+        styles:
+          - lesson
+    - Moko.say:
+        text: 停止ボタンを押したら、外部で始めた仕事も必ず止まる？
+        seconds: 5.6
+        styles:
+          - lesson
+    - Pura.say:
+        text: Promise自体に一律の中止機能はない。止められる仕組みや後始末が必要か、利用するAPIと実行環境に合わせて設計しよう。
+        seconds: 11.2
+        styles:
+          - lesson
+    - goto: async_quiz
+  async_quiz:
+    - stage: Quiz_extensions_async
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_async_quiz
+    - goto: async_quiz
+  async_retry:
+    - stage: Quiz_extensions_async
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 回り続ける待ち方は処理を占有してしまうよ。結果が用意できたことを通知する仕組みを選ぼう。
+        seconds: 8.5
+        styles:
+          - lesson
+    - goto: async_quiz
+  async_yes:
+    - stage: Recap_extensions_async
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 完了の通知と失敗時の方針を用意しよう。停止やタイムアウト、後始末は別に設計が必要になる場合があるよ。
+        seconds: 9.5
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - NextUnit.show:
+        skin: NextUnit
+        x: -112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_async_yes
+    - goto: menu
+  share_intro:
+    - stage: Board_extensions_share
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Moko.say:
+        text: 動いた！ じゃあ、よく分からない設定も全部オンで配ろう！
+        seconds: 5.9
+        styles:
+          - lesson
+    - Pura.say:
+        text: 必要な権限と対応環境を説明してからだよ。単純な文字列処理の例では、sandboxを外す必要はない。
+        seconds: 9.3
+        styles:
+          - lesson
+    - Moko.say:
+        text: sandboxなしなら、なんでも速くなるから正義？
+        seconds: 5.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: できることと影響範囲が広がる。必要なAPIのためかを判断し、信頼するコードだけで使おう。
+        seconds: 8.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: この教材のGuideや紙芝居runtimeの権限と、ぼくの練習拡張の権限も、別の話だね。
+        seconds: 8.5
+        styles:
+          - lesson
+    - Pura.say:
+        text: そう。例はネット通信もファイル操作も行わない。まず「モコ」「空欄」「123」で結果を確認してみよう。
+        seconds: 9.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: 公開後にopcodeや引数名を変えたら、見た目が似ていても古い作品が動かなくなるかも。
+        seconds: 8.3
+        styles:
+          - lesson
+    - Pura.say:
+        text: 互換性の変更を説明し、版と配布元を記録しよう。対応するエディタでの実動作も確かめるんだ。
+        seconds: 8.5
+        styles:
+          - lesson
+    - Moko.say:
+        text: ソース、使い方、ライセンス、試した環境を添えれば、使う人も判断しやすいね。
+        seconds: 7.4
+        styles:
+          - lesson
+    - Pura.say:
+        text: 完成例を読んで、自分の小さな一個を考えてみよう。入力・結果・影響を説明できるブロックから始めよう！
+        seconds: 9.3
+        styles:
+          - lesson
+    - broadcastMessageAndWait: lesson:extensions_share
+    - goto: share_quiz
+  share_quiz:
+    - stage: Quiz_extensions_share
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - AnswerA.show:
+        skin: AnswerA
+        x: -112
+        y: -57
+        scale: 100
+    - AnswerB.show:
+        skin: AnswerB
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_share_quiz
+    - goto: share_quiz
+  share_retry:
+    - stage: Quiz_extensions_share
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 権限は多いほどよいわけではないよ。この例に必要な範囲で、練習用の作品から確かめよう。
+        seconds: 8.2
+        styles:
+          - lesson
+    - goto: share_quiz
+  share_yes:
+    - stage: Recap_extensions_share
+    - Unit1.hide: {}
+    - Unit2.hide: {}
+    - Unit3.hide: {}
+    - Unit4.hide: {}
+    - Unit5.hide: {}
+    - Unit6.hide: {}
+    - AnswerA.hide: {}
+    - AnswerB.hide: {}
+    - NextUnit.hide: {}
+    - Menu.hide: {}
+    - Pura.show:
+        skin: PuraIdle
+        x: -135
+        y: -110
+        scale: 9.5
+    - Moko.show:
+        skin: MokoIdle
+        x: 135
+        y: -110
+        scale: 9.5
+    - Pura.say:
+        text: 必要な権限から始めよう。試した環境、使い方、版や配布元も記録すると、使う人が判断しやすいね。
+        seconds: 8.8
+        styles:
+          - lesson
+    - Menu.show:
+        skin: Menu
+        x: 112
+        y: -57
+        scale: 100
+    - broadcastMessageAndWait: choice:extensions_share_yes
+    - goto: menu
