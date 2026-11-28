@@ -5,8 +5,9 @@ TurboWarp互換のJavaScript拡張で、新しいブロックの形、入力、�
 - [機能・操作を学ぶ文書](docs/index.html)
 - [紙芝居のSB3](docs/work/extensions-4.0.sb3)
 - [題名・セリフ・クイズの編集元](story/lesson.ts)
+- [読み進め方の検証](verification/reader-pacing.json)
 
-文書をブラウザーで読むには、Node.js 24以上で `npm run preview` を実行し、http://127.0.0.1:8798/ を開きます。作品を試すには、SB3をTurboWarp Plus Editorで開き、実行画面を表示して緑の旗を押します。
+文書をブラウザーで読むには、Node.js 24以上で `npm run preview` を実行し、http://127.0.0.1:8798/ を開きます。作品を試すには、SB3をTurboWarp Plus Editorで開き、実行画面を表示して緑の旗を押します。▼が点滅したらステージをクリックするかSpaceを押して進めます。
 
 ```sh
 npm ci --ignore-scripts
