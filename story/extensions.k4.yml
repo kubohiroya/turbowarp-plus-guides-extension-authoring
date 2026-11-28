@@ -3,12 +3,6 @@ controls:
   keymaps:
     production:
       Space: navigation.nextAction
-bubbleStyles:
-  lesson:
-    maxWidth: 320
-    textLocale: ja
-    distance: 0
-    tailLength: 8
 assets:
   PuraIdle:
     kind: costume
@@ -58,6 +52,10 @@ assets:
     kind: costume
     file: assets/Menu.svg
     target: Menu
+  AdvanceCue:
+    kind: costume
+    file: assets/AdvanceCue.svg
+    target: AdvanceCue
   extensionsMenu:
     kind: backdrop
     file: assets/extensionsMenu.svg
@@ -152,6 +150,7 @@ actors:
   AnswerB: AnswerB
   NextUnit: NextUnit
   Menu: Menu
+  AdvanceCue: AdvanceCue
 cover:
   backdrop: extensionsMenu
 scenes:
@@ -167,6 +166,7 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
     - Pura.hide: {}
     - Moko.hide: {}
     - Unit1.show:
@@ -213,6 +213,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -223,56 +234,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 関数が分かったから、次はブロックを百個増やすぞ！
-        seconds: 5.3
-        styles:
-          - lesson
-    - Pura.say:
-        text: まず一個から。機能拡張は、エディタに新しいブロックとその処理を提供する仕組みだよ。
-        seconds: 8
-        styles:
-          - lesson
-    - Moko.say:
-        text: Scratchの「ブロック定義」を作るのと同じ？
-        seconds: 5.3
-        styles:
-          - lesson
-    - Pura.say:
-        text: 作品内の手順をまとめる定義ブロックとは違う。ここではTurboWarp互換のJavaScript拡張を作るんだ。
-        seconds: 10.4
-        styles:
-          - lesson
-    - Moko.say:
-        text: じゃあ標準Scratchのサイトにも、そのまま読み込める？
-        seconds: 6.1
-        styles:
-          - lesson
-    - Pura.say:
-        text: 任意のJavaScript拡張を標準Scratchサイトへ読み込めるわけではないよ。Plusや対応するTurboWarp環境を使おう。
-        seconds: 12.2
-        styles:
-          - lesson
-    - Moko.say:
-        text: 題材は「名前にさんをつける」丸いブロック。小さくて、結果が分かりやすいね。
-        seconds: 7.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: ブロックの情報をgetInfoで宣言し、処理のメソッドを書き、インスタンスを登録する。この三つが入口だ。
-        seconds: 9.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 完成例は教材のソースに入っているよ。紙芝居を動かすために、その例を読み込む必要はないんだ。
-        seconds: 8.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: 教材と開発例を分けてあるから、説明を読んでから、自分の練習用プロジェクトで試せるよ。
-        seconds: 8.2
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:1
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:2
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:3
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:4
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:5
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:6
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:7
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:8
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:9
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:10
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: first_quiz
   first_quiz:
     - stage: Quiz_extensions_first
@@ -286,16 +273,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -320,21 +300,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 標準Scratchに任意のJavaScriptを読み込む講座ではないよ。どの実行環境のAPIを使うのか確認しよう。
-        seconds: 10.6
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:11
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: first_quiz
   first_yes:
     - stage: Recap_extensions_first
@@ -348,21 +329,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: TurboWarp互換のAPIを使った機能拡張だよ。標準Scratchサイトと、対応環境の違いを確認して使おう。
-        seconds: 10.4
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:12
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -387,6 +379,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -397,56 +400,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: getInfoって「情報ください！」と大声で言う関数？
-        seconds: 5.8
-        styles:
-          - lesson
-    - Pura.say:
-        text: エディタへブロックの説明を渡すメソッドだよ。拡張のid、表示名、ブロック一覧などを返すんだ。
-        seconds: 8.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 表示名は変えられるけど、idは作品の識別に使うんだね。
-        seconds: 5.8
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。英数字の適切なidを選び、他の拡張と衝突させない。公開後に変えると既存作品との関係が変わり得るよ。
-        seconds: 9.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: opcodeがgreetなら、実装もgreet(args)。名前がつながっている！
-        seconds: 8
-        styles:
-          - lesson
-    - Pura.say:
-        text: 見た目のtextと、内部の識別子opcodeは別。翻訳で表示文を変えても、内部の約束は保つとよいね。
-        seconds: 9.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: ブロックの形は全部丸にする？
-        seconds: 4.5
-        styles:
-          - lesson
-    - Pura.say:
-        text: 値を返すreporter、真偽を返すboolean、動作するcommandなど、使う側が期待する役割に合わせよう。
-        seconds: 10.6
-        styles:
-          - lesson
-    - Moko.say:
-        text: 最後にScratch.extensions.registerで登録すると、エディタに見つけてもらえるんだ。
-        seconds: 9.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 宣言と実装が一致するか、登録が一回か、読み込みエラーがないかを、小さな状態で確認しよう。
-        seconds: 8.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:13
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:14
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:15
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:16
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:17
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:18
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:19
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:20
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:21
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:22
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: contract_quiz
   contract_quiz:
     - stage: Quiz_extensions_contract
@@ -460,16 +439,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -494,21 +466,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 表示名だけでは、どの処理を呼ぶか決まらないよ。内部のopcodeとメソッドの対応を見よう。
-        seconds: 8.7
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:23
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: contract_quiz
   contract_yes:
     - stage: Recap_extensions_contract
@@ -522,21 +495,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: opcodeと処理メソッドを対応させるんだ。表示する文と内部の識別子は、役割を分けて考えよう。
-        seconds: 9
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:24
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -561,6 +545,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -571,56 +566,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: "[NAME]って書けば、ぼくの名前を自動で知ってくれる？"
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: そこは入力の置き場所。argumentsにNAMEの型や初期値を宣言し、実行時はargs.NAMEで受け取るよ。
-        seconds: 10.4
-        styles:
-          - lesson
-    - Moko.say:
-        text: 初期値は「モコ」。そこへ「プラ」を入れれば「プラさん」が返るね。
-        seconds: 6.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: reporterの結果はreturnで返す。consoleへのログや、画面へセリフを出すこととは違う働きだよ。
-        seconds: 10.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 入力型を文字列に指定したから、絶対に文字しか来ないよね？
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 型の指定は入力欄の形などの目安で、実行時の値を保証しない。必要な型へ変換して扱おう。
-        seconds: 8.2
-        styles:
-          - lesson
-    - Moko.say:
-        text: 今回はScratch.Cast.toStringを使う。数値が入っても、文字としてつなげられるね。
-        seconds: 9.3
-        styles:
-          - lesson
-    - Pura.say:
-        text: 数値ならtoNumberなど、意図に合った変換を選ぼう。空欄や想定外の入力をどう扱うかも仕様にするんだ。
-        seconds: 9.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 「モコ」、空文字、123。別々の入力で、期待した結果と比べてみよう。
-        seconds: 6.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 一般の関数講座で扱った入力・結果・契約が、拡張ブロックの設計にもつながるね。
-        seconds: 7.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:25
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:26
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:27
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:28
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:29
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:30
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:31
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:32
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:33
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:34
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: arguments_quiz
   arguments_quiz:
     - stage: Quiz_extensions_arguments
@@ -634,16 +605,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -668,21 +632,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 入力欄の型指定だけでは、実行時に受け取る値の型を保証しないよ。明示的な変換を考えよう。
-        seconds: 8.3
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:35
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: arguments_quiz
   arguments_yes:
     - stage: Recap_extensions_arguments
@@ -696,21 +661,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 別の形の値が届くことも考え、処理に必要な型へ変換しよう。初期値と実際の入力も区別してね。
-        seconds: 8.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:36
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -735,6 +711,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -745,56 +732,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 呼ぶたびに回数が増えるブロックを作ったよ。誰の回数かは、ひみつ！
-        seconds: 6.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: そこを決めよう。拡張インスタンスのフィールドは、同じ拡張を呼ぶ複数のスクリプトで共有され得るよ。
-        seconds: 9.1
-        styles:
-          - lesson
-    - Moko.say:
-        text: スプライトごとの点数のつもりでthis.countを使うと、混ざってしまうかも。
-        seconds: 7.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。作品全体、スプライト、呼び出し一回。誰に属するデータかを先に決めよう。
-        seconds: 7.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 緑の旗を押せば、JavaScriptのフィールドも必ずゼロに戻る？
-        seconds: 6.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: 自動でそうなると決めつけない。初期化やリセットの動作を設計し、対応する環境で確かめる必要があるよ。
-        seconds: 9.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 保存して開き直したら、フィールドの値も全部残る？
-        seconds: 5.3
-        styles:
-          - lesson
-    - Pura.say:
-        text: ただのJavaScriptフィールドを、作品データの保存と同じだと思わないでね。永続化は別の約束になる。
-        seconds: 9.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 今回のあいさつブロックは、入力から結果を作るだけ。共有状態を持たなくて済むね。
-        seconds: 7.7
-        styles:
-          - lesson
-    - Pura.say:
-        text: 必要になるまで増やさないのも設計だよ。状態を持つなら、所有者・初期値・寿命・保存を説明できるようにしよう。
-        seconds: 9.9
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:37
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:38
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:39
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:40
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:41
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:42
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:43
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:44
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:45
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:46
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: state_quiz
   state_quiz:
     - stage: Quiz_extensions_state
@@ -808,16 +771,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -842,21 +798,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: JavaScriptのフィールドと、スプライトごとの保存される変数は同じではないよ。所有範囲と寿命を確認しよう。
-        seconds: 10.4
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:47
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: state_quiz
   state_yes:
     - stage: Recap_extensions_state
@@ -870,21 +827,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: そのフィールドが誰の状態なのか、いつ初期化され、何が保存されるかを明示しよう。自動で作品変数になるわけではないよ。
-        seconds: 10.6
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:48
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -909,6 +877,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -919,56 +898,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 時間のかかる処理？ 完了するまで、whileでずっと待てばいい！
-        seconds: 6.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: 忙しく回り続ける待ち方は、処理を占有してしまう。非同期の処理は、Promiseで完了や結果を知らせよう。
-        seconds: 9.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: Promiseを返すと、そのブロックを呼んだスクリプトが結果を待てるんだね。
-        seconds: 7.5
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。他のスクリプトまで全部止める待ち方とは違う。サンプルには、少し待ってあいさつを返すブロックもあるよ。
-        seconds: 9.9
-        styles:
-          - lesson
-    - Moko.say:
-        text: 待ち時間の入力を、とんでもなく大きくしたら？
-        seconds: 4.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 扱う範囲を決めよう。今回の例は0〜2秒に収める。実際のアプリなら、要求や外部処理の性質に合わせて考える。
-        seconds: 9.8
-        styles:
-          - lesson
-    - Moko.say:
-        text: 通信に失敗したら、ずっと黙って待たせるのは困るね。
-        seconds: 5.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: 失敗時に返す値や通知、タイムアウトなどを設計する。成功したふりをしないことが大切だよ。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: 停止ボタンを押したら、外部で始めた仕事も必ず止まる？
-        seconds: 5.6
-        styles:
-          - lesson
-    - Pura.say:
-        text: Promise自体に一律の中止機能はない。止められる仕組みや後始末が必要か、利用するAPIと実行環境に合わせて設計しよう。
-        seconds: 11.2
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:49
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:50
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:51
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:52
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:53
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:54
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:55
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:56
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:57
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:58
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: async_quiz
   async_quiz:
     - stage: Quiz_extensions_async
@@ -982,16 +937,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -1016,21 +964,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 回り続ける待ち方は処理を占有してしまうよ。結果が用意できたことを通知する仕組みを選ぼう。
-        seconds: 8.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:59
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: async_quiz
   async_yes:
     - stage: Recap_extensions_async
@@ -1044,21 +993,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 完了の通知と失敗時の方針を用意しよう。停止やタイムアウト、後始末は別に設計が必要になる場合があるよ。
-        seconds: 9.5
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:60
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
@@ -1083,6 +1043,17 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
@@ -1093,56 +1064,32 @@ scenes:
         x: 135
         y: -110
         scale: 9.5
-    - Moko.say:
-        text: 動いた！ じゃあ、よく分からない設定も全部オンで配ろう！
-        seconds: 5.9
-        styles:
-          - lesson
-    - Pura.say:
-        text: 必要な権限と対応環境を説明してからだよ。単純な文字列処理の例では、sandboxを外す必要はない。
-        seconds: 9.3
-        styles:
-          - lesson
-    - Moko.say:
-        text: sandboxなしなら、なんでも速くなるから正義？
-        seconds: 5.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: できることと影響範囲が広がる。必要なAPIのためかを判断し、信頼するコードだけで使おう。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: この教材のGuideや紙芝居runtimeの権限と、ぼくの練習拡張の権限も、別の話だね。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Pura.say:
-        text: そう。例はネット通信もファイル操作も行わない。まず「モコ」「空欄」「123」で結果を確認してみよう。
-        seconds: 9.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: 公開後にopcodeや引数名を変えたら、見た目が似ていても古い作品が動かなくなるかも。
-        seconds: 8.3
-        styles:
-          - lesson
-    - Pura.say:
-        text: 互換性の変更を説明し、版と配布元を記録しよう。対応するエディタでの実動作も確かめるんだ。
-        seconds: 8.5
-        styles:
-          - lesson
-    - Moko.say:
-        text: ソース、使い方、ライセンス、試した環境を添えれば、使う人も判断しやすいね。
-        seconds: 7.4
-        styles:
-          - lesson
-    - Pura.say:
-        text: 完成例を読んで、自分の小さな一個を考えてみよう。入力・結果・影響を説明できるブロックから始めよう！
-        seconds: 9.3
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:61
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:62
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:63
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:64
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:65
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:66
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:67
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:68
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:69
+    - broadcastMessageAndWait: reading:clear
+    - broadcastMessageAndWait: reading:70
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - broadcastMessageAndWait: lesson:extensions_share
     - goto: share_quiz
   share_quiz:
@@ -1157,16 +1104,9 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
-    - Pura.show:
-        skin: PuraIdle
-        x: -135
-        y: -110
-        scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - AnswerA.show:
         skin: AnswerA
         x: -112
@@ -1191,21 +1131,22 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 権限は多いほどよいわけではないよ。この例に必要な範囲で、練習用の作品から確かめよう。
-        seconds: 8.2
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:71
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - goto: share_quiz
   share_yes:
     - stage: Recap_extensions_share
@@ -1219,21 +1160,32 @@ scenes:
     - AnswerB.hide: {}
     - NextUnit.hide: {}
     - Menu.hide: {}
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:0
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
     - Pura.show:
         skin: PuraIdle
         x: -135
         y: -110
         scale: 9.5
-    - Moko.show:
-        skin: MokoIdle
-        x: 135
-        y: -110
-        scale: 9.5
-    - Pura.say:
-        text: 必要な権限から始めよう。試した環境、使い方、版や配布元も記録すると、使う人が判断しやすいね。
-        seconds: 8.8
-        styles:
-          - lesson
+    - AdvanceCue.show:
+        skin: AdvanceCue
+        x: 220
+        y: -151
+        scale: 100
+    - broadcastMessageAndWait: reading:72
+    - broadcastMessageAndWait: reading:clear
+    - AdvanceCue.hide: {}
+    - Pura.hide: {}
+    - Moko.hide: {}
     - Menu.show:
         skin: Menu
         x: 112
